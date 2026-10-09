@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="PlaylistBridge is a personal Windows desktop application for transferring music playlists between Spotify and YouTube.">
+  <title>PlaylistBridge</title>
+  <link rel="icon" href="assets/playlistbridge.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="./"><img src="assets/playlistbridge.png" alt="PlaylistBridge icon"><span>PlaylistBridge</span></a>
+      <div class="links"><a href="#about">About</a><a href="#privacy">Data use</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="wrap hero">
+    <div>
+      <div class="kicker">Personal desktop utility</div>
+      <h1>Move playlists between Spotify and YouTube.</h1>
+      <p class="lead">PlaylistBridge is a local Windows application that helps a user migrate their own music library between Spotify and YouTube, review uncertain matches, reuse cached matches, and resume transfers without starting over.</p>
+      <div class="badges"><span class="badge">Windows desktop</span><span class="badge">Spotify OAuth</span><span class="badge">Google OAuth</span><span class="badge">YouTube Data API v3</span><span class="badge">Local cache</span></div>
+    </div>
+    <div class="hero-card">
+      <img src="assets/playlistbridge.png" alt="PlaylistBridge application icon">
+      <div class="notice">PlaylistBridge does not ask for Spotify or Google passwords. Authentication is performed on the official provider websites using OAuth.</div>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="wrap">
+      <h2>What PlaylistBridge does</h2>
+      <div class="grid">
+        <article class="card"><h3>Spotify → YouTube</h3><p>Reads an authorized Spotify playlist or the user's saved tracks, finds corresponding YouTube videos, and creates or updates a YouTube playlist.</p></article>
+        <article class="card"><h3>YouTube → Spotify</h3><p>Reads an authorized YouTube playlist, finds corresponding Spotify tracks, and creates or updates a Spotify playlist.</p></article>
+        <article class="card"><h3>Local matching cache</h3><p>Stores successful track matches locally so previously matched music does not need to be searched again on later runs.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="privacy">
+    <div class="wrap">
+      <h2>Data use and API access</h2>
+      <div class="card">
+        <p>PlaylistBridge is designed as a local desktop application. OAuth tokens, settings, transfer session state, and the match cache are stored on the user's Windows computer. OAuth tokens and protected credentials are stored using Windows data protection mechanisms.</p>
+        <p>The application communicates directly with Spotify and Google/YouTube APIs to perform the actions requested by the user. PlaylistBridge does not operate a separate backend service for collecting user library data, does not sell user data, and does not use user data for advertising.</p>
+        <p>PlaylistBridge uses <strong>YouTube API Services</strong>. Use of YouTube features is subject to the <a href="https://www.youtube.com/t/terms" rel="noopener noreferrer">YouTube Terms of Service</a> and Google's <a href="https://policies.google.com/privacy" rel="noopener noreferrer">Privacy Policy</a>.</p>
+        <p><a href="privacy.html">Read the full Privacy Policy →</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Contact</h2>
+      <div class="card">
+        <p>Developer contact: <a href="mailto:fanmobilea@gmail.com">fanmobilea@gmail.com</a></p>
+        <p class="muted">Before publishing this site, replace this placeholder with the email address used for the Google API project/contact.</p>
+      </div>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap">© 2026 PlaylistBridge · <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Use</a></div></footer>
+</body>
+</html>
+
