@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="PlaylistBridge v0.2.60 Windows desktop application for YouTube API compliance review. Installation, OAuth access and testing guidance.">
+  <title>Review Build · PlaylistBridge v0.2.60</title>
+  <link rel="icon" href="assets/playlistbridge.png">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .review { padding: 60px 0 72px; }
+    .review h1 { font-size: clamp(38px,6vw,60px); line-height:1.08; }
+    .review h2 { font-size:25px; margin:0 0 15px; }
+    .review h3 { margin-top:0; }
+    .review section { padding: 16px 0; }
+    .review .intro { max-width:800px; font-size:17px; color:var(--muted); }
+    .review .panel { background:linear-gradient(180deg,var(--panel2),var(--panel)); border:1px solid var(--line); border-radius:18px; padding:26px 30px; }
+    .review .panel p, .review .panel li { color:var(--muted); }
+    .review .panel strong { color:var(--text); }
+    .review .grid2 { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+    .review .pill-row { display:flex; flex-wrap:wrap; gap:9px; margin:20px 0; }
+    .review .pill-row span { background:var(--panel); color:var(--text); border:1px solid var(--line); border-radius:999px; padding:7px 12px; font-size:13px; }
+    .review .status { color:#f5dba2; font-weight:700; font-size:14px; }
+    .review .notice { margin-top:18px; }
+    .review .action { display:inline-block; background:#103747; color:#ecfbff; border:1px solid #27677a; border-radius:11px; padding:10px 18px; font-weight:700; }
+    .review .action:hover { background:#175168; text-decoration:none; }
+    .review pre { white-space:pre-wrap; overflow-wrap:anywhere; color:#d7f6ff; background:#07121e; padding:14px; border:1px solid var(--line); border-radius:10px; font-size:12px; }
+    .review ol { padding-left:24px; }
+    .review li { padding:4px 0; }
+    @media(max-width:760px){.review .grid2{grid-template-columns:1fr}.review .panel{padding:20px}.review{padding-top:34px}}
+  </style>
+</head>
+<body>
+<header><div class="wrap"><nav>
+  <a class="brand" href="./"><img src="assets/playlistbridge.png" alt="PlaylistBridge icon"><span>PlaylistBridge</span></a>
+  <div class="links"><a href="./">Home</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
+</nav></div></header>
+<main class="review"><div class="wrap">
+  <div class="kicker">YouTube API Services · Compliance Review</div>
+  <h1>PlaylistBridge <span style="color:var(--accent)">v0.2.60</span></h1>
+  <p class="intro">A Windows desktop API client for transferring playlist entries between Spotify and YouTube. This page provides installation details and a reviewer workflow. It is not a public release announcement.</p>
+  <div class="pill-row"><span>Windows 10 / 11 x64</span><span>Self-contained .NET 10</span><span>YouTube Data API v3</span><span>OAuth 2.0</span></div>
+
+  <section id="download"><div class="panel">
+    <div class="status">Review package — public upload not yet confirmed</div>
+    <h2>Download for Windows</h2>
+    <p><strong>Review build:</strong> v0.2.60 · <strong>Archive:</strong> <code>PlaylistBridge_Review_0.2.60.zip</code></p>
+    <p>The Windows executable has been built successfully and passed 323 regression assertions in the developer's build environment. The release ZIP has not yet been verified as publicly downloadable. We will add a direct download link after publication and verification.</p>
+    <p><a class="action" href="https://github.com/Rafaello0/PlaylistBridge/releases" rel="noopener noreferrer">GitHub Releases</a></p>
+    <p>For reviewer access before the download becomes available, please contact <a href="mailto:fanmobilea@gmail.com?subject=PlaylistBridge%20review%20build">fanmobilea@gmail.com</a>.</p>
+    <div class="notice">This is a testing/review build. A successful local build does not guarantee access for every Spotify or Google account: provider-side OAuth restrictions still apply.</div>
+  </div></section>
+
+  <section id="install"><div class="panel">
+    <h2>1. Install and start</h2>
+    <ol>
+      <li>Download the review ZIP after its public link is provided.</li>
+      <li>Extract the ZIP to a folder on a Windows 10 or 11 x64 computer.</li>
+      <li>Run <code>PlaylistBridge.exe</code> from the extracted folder.</li>
+      <li>Ensure internet access is available, then connect the accounts needed for your test.</li>
+    </ol>
+    <p>No separate .NET runtime installation is required for this self-contained build. If Windows displays an unknown-publisher or security warning, check the publisher, download source and SHA-256 before proceeding; do not bypass organizational security policies.</p>
+  </div></section>
+
+  <section id="oauth"><h2>2. Connect accounts</h2><div class="grid2">
+    <div class="panel"><h3>Google / YouTube</h3>
+      <p>Select <strong>Connect YouTube</strong> in PlaylistBridge. The application opens Google's official OAuth sign-in page in your system browser. Sign in using a reviewer-controlled Google account, review the permissions and continue.</p>
+      <p>PlaylistBridge requests <code>https://www.googleapis.com/auth/youtube.force-ssl</code> to read and manage authorized YouTube playlists. Depending on the Google project's verification or testing state, access may need to be arranged with the developer.</p>
+    </div>
+    <div class="panel"><h3>Spotify — Development Mode</h3>
+      <p>Spotify restricts access to explicitly authorized users while the Spotify application is in Development Mode. Reviewers who want to use their own Spotify account must first request allowlist access from <a href="mailto:fanmobilea@gmail.com?subject=PlaylistBridge%20Spotify%20reviewer%20access">the developer</a>.</p>
+      <p><strong>Do not send passwords or OAuth tokens.</strong> Spotify sign-in is performed on Spotify's official OAuth page. Please contact the developer with the Spotify account identifier needed for allowlisting.</p>
+    </div>
+  </div></section>
+
+  <section id="workflow"><div class="panel">
+    <h2>3. Suggested review scenario</h2>
+    <ol>
+      <li>Start PlaylistBridge and connect Google / YouTube using OAuth.</li>
+      <li>Arrange Spotify allowlist access if necessary, then connect Spotify.</li>
+      <li>Select an authorized Spotify playlist or saved tracks.</li>
+      <li>Search for YouTube matches and review uncertain candidates.</li>
+      <li>Choose an existing YouTube destination playlist or create a new one.</li>
+      <li>Start the transfer, then open YouTube to verify the playlist entries.</li>
+      <li>Review the account-disconnect options and the privacy and terms documents.</li>
+    </ol>
+    <p>PlaylistBridge transfers playlist metadata and entries, not audio/video files. API actions are performed by the Windows application on behalf of the signed-in user.</p>
+  </div></section>
+
+  <section id="integrity"><div class="panel">
+    <h2>4. File integrity</h2>
+    <p>SHA-256 of <strong>PlaylistBridge.exe</strong>, as reported by the successful v0.2.60 build (this is not the ZIP checksum):</p>
+    <pre>C9857DC99929FFED0F98C3D93A66D79C4838F79D9827A9CB4390682F53A86628</pre>
+    <p>Verify the extracted executable using Windows PowerShell:</p>
+    <pre>Get-FileHash -Algorithm SHA256 .\PlaylistBridge.exe</pre>
+    <p>The released executable must match the value above. A separate SHA-256 for the published ZIP should also be provided when the final package is uploaded.</p>
+  </div></section>
+
+  <section id="support"><div class="panel">
+    <h2>5. Privacy and support</h2>
+    <p>Tokens and configuration are stored locally on the user's Windows computer; protected credentials use Windows DPAPI. PlaylistBridge does not ask for Spotify or Google account passwords.</p>
+    <p><a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Use</a> · <a href="https://www.youtube.com/t/terms" rel="noopener noreferrer">YouTube Terms of Service</a> · <a href="https://policies.google.com/privacy" rel="noopener noreferrer">Google Privacy Policy</a></p>
+    <p>Developer contact: <a href="mailto:fanmobilea@gmail.com">fanmobilea@gmail.com</a></p>
+  </div></section>
+</div></main>
+<footer><div class="wrap">© 2026 PlaylistBridge · Reviewer information · <a href="./">Home</a> · <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms</a></div></footer>
+</body>
+</html>
