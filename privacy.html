@@ -3,54 +3,71 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="PlaylistBridge Windows desktop application privacy policy">
+  <meta name="description" content="PlaylistBridge privacy policy: Spotify and YouTube API data, local device storage, service providers, cookies, retention, and deletion.">
   <title>Privacy Policy · PlaylistBridge</title>
   <link rel="icon" href="assets/playlistbridge.png">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header><div class="wrap"><nav><a class="brand" href="./"><img src="assets/playlistbridge.png" alt="PlaylistBridge icon"><span>PlaylistBridge</span></a><div class="links"><a href="./">Home</a><a href="terms.html">Terms</a></div></nav></div></header>
+<header><div class="wrap"><nav>
+  <a class="brand" href="./"><img src="assets/playlistbridge.png" alt="PlaylistBridge icon"><span>PlaylistBridge</span></a>
+  <div class="links"><a href="./">Home</a><a href="terms.html">Terms</a></div>
+</nav></div></header>
 <main class="page"><div class="wrap content">
   <h1>Privacy Policy</h1>
-  <div class="meta">Updated: October 28, 2026 · PlaylistBridge Windows desktop application</div>
+  <div class="meta">Updated: November 11, 2026 · PlaylistBridge Windows desktop application</div>
 
-  <p>This Privacy Policy explains how PlaylistBridge processes information when you connect your Spotify or YouTube account and transfer playlist entries. PlaylistBridge is an independent Windows desktop utility and is not affiliated with Spotify, Google or YouTube.</p>
+  <p>This Privacy Policy describes the data accessed, processed, transmitted, and stored when you use the PlaylistBridge Windows desktop application to connect your Spotify and YouTube accounts and transfer playlist entries. PlaylistBridge is an independent utility and is not affiliated with Spotify, Google, or YouTube.</p>
 
-  <h2>1. Application purpose</h2>
-  <p>PlaylistBridge transfers playlist entries and identifiers between accounts that you authorize. It reads playlists, finds candidate media matches, and creates or updates destination playlists when you request it. It does not download, copy or transfer the underlying music or video files.</p>
+  <h2>1. Purpose and API services</h2>
+  <p>PlaylistBridge uses Spotify's official APIs and <strong>YouTube API Services (YouTube Data API v3)</strong> to read authorized playlist information, find matching YouTube videos, and create or modify YouTube playlists when requested by the user. PlaylistBridge transfers references and metadata, not music or video files. Features requiring access to a user's account use OAuth authorization through the respective service's official sign-in pages.</p>
 
-  <h2>2. Data accessed</h2>
-  <p>When you use relevant features, the application may access or process:</p>
+  <h2>2. Information the application accesses and uses</h2>
+  <p>The information processed depends on which services and features you authorize and use:</p>
   <ul>
-    <li>Spotify playlist and saved/top-track metadata: song titles, artists, album names, track and playlist IDs, and related account playlist information.</li>
-    <li>YouTube API data: authorized channel name and ID, playlist/video identifiers and titles, playlist entries, video search results, and candidate matches.</li>
-    <li>OAuth access and refresh tokens, local application settings, source/destination associations, transfer progress, and diagnostic error logs. Logs may contain playlist titles and IDs.</li>
+    <li><strong>Google/YouTube account and channel information:</strong> the name and ID of the authorized YouTube channel, authorized playlists and their IDs, playlist titles, video IDs and titles, playlist items and related metadata returned by YouTube Data API v3. The application uses this information to identify the selected destination and show or modify the user's playlists.</li>
+    <li><strong>YouTube search and matching information:</strong> search queries, YouTube video search results, video IDs and titles, selected matches, and source-to-destination associations. These support song matching, user review, avoiding duplicate entries, and resuming transfers.</li>
+    <li><strong>Spotify account and music-library information:</strong> playlists, saved or top tracks when the corresponding features are selected, track and playlist IDs, titles, artists, album names and playlist information. These data provide the source entries for matching and transfer.</li>
+    <li><strong>Authorization information:</strong> OAuth access and refresh tokens granted by Google and Spotify, authorization state and related account or channel identifiers needed for the active connection. PlaylistBridge does not ask users to type their Google or Spotify passwords into the application.</li>
+    <li><strong>Local operational data:</strong> application preferences, transfer progress, search/match caches, selected destination associations, recovery state and diagnostic logs. Diagnostic logs may contain playlist names, resource identifiers or error details associated with API requests.</li>
   </ul>
-  <p>PlaylistBridge requests the Google OAuth scope <code>https://www.googleapis.com/auth/youtube.force-ssl</code> to read and manage the user's YouTube playlists and entries, including creation, editing and deletion following explicit user actions. Song titles and artist names are submitted in YouTube search requests to locate matches. The application also requests Spotify OAuth scopes needed for its selected playlist features.</p>
+  <p>For YouTube authorization, PlaylistBridge requests the scope <code>https://www.googleapis.com/auth/youtube.force-ssl</code>, which can permit reading and managing YouTube playlists and related resources. The application uses authorized operations to perform the playlist actions the user selects.</p>
 
-  <h2>3. Processing and local storage</h2>
-  <p>PlaylistBridge communicates directly with the Spotify, Google OAuth and YouTube APIs. Application settings, OAuth tokens, transfer state, search matches and local mappings are stored in the user's Windows application data directory (<code>%LOCALAPPDATA%\PlaylistBridge</code>), rather than in a publisher-hosted music-library database. Stored tokens and protected credentials use Windows Data Protection API (DPAPI) for the current Windows user. The app does not collect Google or Spotify passwords.</p>
-  <p>There is no publisher-operated account registration system, advertising functionality, or independent behavior-tracking/analytics service in the Windows application. User data obtained through the YouTube API is not sold to advertisers or data brokers.</p>
+  <h2>3. How data is processed and shared</h2>
+  <p>PlaylistBridge processes playlist information on the user's Windows computer to display source entries, find candidate matches, associate source tracks with destination videos, track progress, and carry out user-requested playlist operations.</p>
+  <ul>
+    <li><strong>Google and YouTube:</strong> the application sends authorized requests to Google OAuth and YouTube Data API v3. YouTube search queries may contain song titles and artist names originating from Spotify. When the user starts a transfer, PlaylistBridge sends selected video IDs, destination playlist identifiers and playlist operations to YouTube on the user's behalf. Google and YouTube process the information they receive under their own policies.</li>
+    <li><strong>Spotify:</strong> the application sends requests to Spotify's OAuth and API services to authenticate the user and retrieve the playlists and tracks requested by the user. Spotify processes the information it receives under its own policies.</li>
+    <li><strong>Application developer and internal recipients:</strong> PlaylistBridge does not operate a separate publisher-hosted music-library database or a developer-operated account system. Playlist and token data normally remain on the user's computer; the developer does not automatically receive them. If a user voluntarily sends diagnostic files or other details to support, the developer receives the information included in that message or attachment and uses it to respond to the support request.</li>
+    <li><strong>Other external parties:</strong> the Windows application does not send YouTube playlist data to advertising networks or data brokers and does not sell user information. The desktop application does not include a separate advertising or behavioral analytics service.</li>
+  </ul>
+  <p><strong>Website and releases:</strong> the public PlaylistBridge website is hosted on GitHub Pages, and the review build is distributed through GitHub Releases. When you visit those websites, their providers may process technical connection information such as your IP address and browser details under their own policies. Visiting the website is separate from sharing Spotify or YouTube playlist data through the desktop application.</p>
 
-  <h2>4. Retention</h2>
-  <p>Individual local search/match-cache records expire after 30 days. At startup, the application removes transfer session, search and certain other snapshot files older than 30 days. Other locally stored destination associations or index records may remain during ongoing use, including where a shared file is rewritten, to avoid duplicate playlist creation and support transfer recovery. Such retained local YouTube-related data is removed when YouTube is disconnected or when the relevant local application data is deleted. OAuth tokens are kept while authorization remains needed and valid.</p>
+  <h2>4. Local storage, device technologies, and cookies</h2>
+  <p>PlaylistBridge <strong>accesses and stores information on the user's device</strong>. Application configuration, authorization state, tokens, playlist-related metadata, caches, transfer mappings, logs and recovery data may be stored under <code>%LOCALAPPDATA%\PlaylistBridge</code> for the signed-in Windows user. The application reads and updates these files and settings as required for its features. Eligible saved credentials and tokens are protected using Windows Data Protection API (DPAPI) for the current Windows user.</p>
+  <p><strong>Cookies and similar technologies:</strong> PlaylistBridge does not use its own cross-site advertising cookies in the Windows desktop application. The application opens Google and Spotify OAuth sign-in pages in your system browser; on these third-party pages, Google and Spotify may place, read, or recognize cookies, local storage, session storage, or similar browser identifiers to support login, account protection and consent. The browser and the website hosting providers may also store history, caching information, or site data independently of PlaylistBridge. The desktop application does not control how third parties manage their cookies. Refer to the applicable third-party privacy and cookie policies.</p>
 
-  <h2>5. Disconnecting, revocation and deletion</h2>
-  <p>Select <strong>Disconnect YouTube</strong> in PlaylistBridge to request revocation of the saved Google OAuth token through Google's official endpoint. On successful revocation or confirmation that the token is already invalid, PlaylistBridge deletes the locally stored YouTube token and associated YouTube data, session state, search/match caches, transfer mappings and diagnostic logs. The Spotify authorization and general preferences are retained. Interrupted local cleanup is retried at startup.</p>
-  <p>If Google cannot be reached, PlaylistBridge cannot confirm remote revocation. The user may select local-only removal and should also revoke the app's access manually in <a href="https://myaccount.google.com/connections" rel="noopener noreferrer">Google Account third-party connections</a>. Spotify permissions may be revoked from Spotify account app settings.</p>
-  <p>Deleting local PlaylistBridge data or disconnecting an account does not delete remote playlists, songs or videos. Manage or delete such content directly in the respective service.</p>
+  <h2>5. Retention, refresh, and deletion of stored information</h2>
+  <p>Local search/match-cache records are intended to expire after 30 days. On application startup, PlaylistBridge removes certain expired transfer-session, search, and snapshot files older than 30 days. Some local destination associations and index records can remain during ongoing use to help resume transfers and avoid duplicate playlist creation; they are removed when the YouTube account is disconnected or the relevant local application data is deleted.</p>
+  <p><strong>YouTube API Data:</strong> subject to the applicable exceptions in the YouTube API Services policies (including authorized tokens and certain authorized statistics), stored YouTube API Data must be refreshed or deleted within 30 calendar days, whether obtained with or without authorization. YouTube data displayed as current should be checked against the latest available information. The current build still requires further validation and correction of certain shared local association and index records to ensure this limit is enforced consistently, including during long-running sessions and before reuse. Authorization tokens are retained only as necessary for a valid, active user authorization.</p>
+  <p><strong>Deleting locally stored data:</strong> use <strong>Disconnect YouTube</strong> in PlaylistBridge to remove the connection and its associated local YouTube data. You can also close the application, revoke its Google authorization, and remove the local application data at <code>%LOCALAPPDATA%\PlaylistBridge</code>; removing that directory may also erase Spotify data, preferences and transfer history. For assistance with a deletion request, contact the developer using the address below. Because PlaylistBridge does not operate a central account database, the developer generally cannot directly access or remotely erase data on your Windows device.</p><p>Deleting data stored by PlaylistBridge does <strong>not</strong> delete any playlist, video, or other content hosted by YouTube or Spotify. To delete content on those services, use their own applications or an authorized API client with the relevant capability.</p>
 
-  <h2>6. Third-party services and terms</h2>
-  <p>PlaylistBridge uses YouTube API Services. By using the YouTube features of PlaylistBridge, users also agree to the <a href="https://www.youtube.com/t/terms" rel="noopener noreferrer">YouTube Terms of Service</a>. Learn about Google's handling of data in the <a href="https://policies.google.com/privacy" rel="noopener noreferrer">Google Privacy Policy</a>. Spotify API interactions are subject to Spotify's applicable terms and policies.</p>
+  <h2>6. Revocation and user controls</h2>
+  <p>Users can select <strong>Disconnect YouTube</strong> to request OAuth token revocation using Google's official endpoint. When revocation succeeds, or when the saved token is already invalid, PlaylistBridge removes the locally stored YouTube token and associated YouTube data, including relevant caches, mappings, transfer state and diagnostic logs. Cleanup interrupted by an application error is retried at startup.</p>
+  <p>If Google cannot be reached, the application cannot confirm remote token revocation. Users may remove the local connection and should independently revoke the application's Google access in <a href="https://security.google.com/settings/security/permissions" rel="noopener noreferrer">Google Account third-party access settings</a> (also available through <a href="https://myaccount.google.com/connections" rel="noopener noreferrer">Google Account connections</a>). Spotify authorization may be revoked through the Spotify account's application access settings.</p>
+  <p>For privacy questions, support, and deletion requests, contact <a href="mailto:fanmobilea@gmail.com">fanmobilea@gmail.com</a>. Deletion requests for data under the developer's control are handled as soon as possible and no later than seven calendar days after receiving the request, as required by YouTube API Services policies. The developer can provide instructions for locally stored data that remains under your control on your own device. If access has been revoked at Google, the application must also stop using the revoked authorization and remove associated locally stored authorized data as required by the YouTube API policies.</p>
 
   <h2>7. Security</h2>
-  <p>OAuth sign-in occurs through each service's official webpages in the system browser. PlaylistBridge does not ask for account passwords. Tokens and eligible credentials saved locally are protected using Windows DPAPI. No storage or communication method is completely risk-free.</p>
+  <p>OAuth sign-in takes place on official Google and Spotify pages in the system browser. PlaylistBridge does not request or retain account passwords. Local credential protection uses Windows DPAPI, and API requests use the service providers' secure endpoints. No storage or transmission method is completely risk-free.</p>
 
-  <h2>8. Policy updates</h2>
-  <p>This page may be updated to reflect changes in PlaylistBridge functionality, permissions, or API usage. The updated date above will be revised when material changes are published.</p>
+  <h2>8. Third-party policies and terms</h2>
+  <p>PlaylistBridge uses YouTube API Services. By using PlaylistBridge's YouTube functionality, users are also subject to the <a href="https://www.youtube.com/t/terms" rel="noopener noreferrer">YouTube Terms of Service</a>. See the <a href="https://policies.google.com/privacy" rel="noopener noreferrer">Google Privacy Policy</a> for how Google processes data and the <a href="https://www.spotify.com/legal/privacy-policy/" rel="noopener noreferrer">Spotify Privacy Policy</a> for how Spotify processes data.</p>
 
-  <h2>9. Contact</h2>
-  <p>For privacy requests, questions about your data, or developer contact: <a href="mailto:fanmobilea@gmail.com">fanmobilea@gmail.com</a>.</p>
+  <h2>9. Policy updates</h2>
+  <p>This policy may be updated to describe changes to PlaylistBridge's functionality, API access, data processing or retention practices. The update date at the top of this page will be revised when changes are published.</p>
+
+  <h2>10. Contact</h2>
+  <p>For questions about this Privacy Policy, complaints, support, or requests relating to personal information: <a href="mailto:fanmobilea@gmail.com">fanmobilea@gmail.com</a>.</p>
 </div></main>
 <footer><div class="wrap">© 2026 PlaylistBridge · <a href="./">Home</a> · <a href="terms.html">Terms of Use</a></div></footer>
 </body>
